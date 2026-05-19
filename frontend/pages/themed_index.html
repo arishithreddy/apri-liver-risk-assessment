@@ -198,17 +198,34 @@
         interpretation: localStorage.getItem('apriInterpretation') || 'N/A'
       };
 
-      fetch("https://script.google.com/macros/s/AKfycbzhKWmynjOHlyP711kw_1cGtKmI714xWpzSyjcB6nYwBQdX1JCBrkaVgjySbV20HGUa/exec", {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      }).then(() => {
-        alert('Data saved successfully.');
-      }).catch(() => {
-        alert('Failed to save data.');
-      });
-    }
+      fetch("http://localhost:5000/api/patient", {
+
+    method: "POST",
+
+    headers: {
+        "Content-Type": "application/json"
+    },
+
+    body: JSON.stringify(data)
+
+})
+.then(response => response.json())
+
+.then(result => {
+
+    console.log(result);
+
+    alert("Data saved successfully.");
+
+})
+
+.catch(error => {
+
+    console.log(error);
+
+    alert("Failed to save data.");
+
+});
 
     function downloadResult() {
       const name = localStorage.getItem('name') || 'N/A';

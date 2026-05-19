@@ -194,11 +194,11 @@
         ast: localStorage.getItem('ast') || 'N/A',
         astLimit: localStorage.getItem('astLimit') || 'N/A',
         platelets: localStorage.getItem('platelets') || 'N/A',
-        apriScore: localStorage.getItem('apriScore') || 'N/A',
+        apri: localStorage.getItem('apriScore') || 'N/A',
         interpretation: localStorage.getItem('apriInterpretation') || 'N/A'
       };
 
-      fetch("http://localhost:5000/api/patient", {
+      fetch("http://localhost:5001/api/patient", {
 
     method: "POST",
 

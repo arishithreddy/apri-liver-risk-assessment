@@ -68,17 +68,7 @@
 
       <div class="mb-3">
         <label for="ast" class="form-label">AST Level (U/L)</label>
-        <input type="number"
-       id="astLower"
-       class="form-control mb-3"
-       placeholder="Enter AST Lower Value"
-       required />
-
-<input type="number"
-       id="astUpper"
-       class="form-control"
-       placeholder="Enter AST Upper Limit"
-       required />
+        <input type="number" id="ast" class="form-control" placeholder="Enter AST Level" required />
       </div>
 
       <div class="text-center">
@@ -89,25 +79,15 @@
 
   <script>
     function saveAST() {
-
-  const astLower = document.getElementById("astLower").value;
-  const astUpper = document.getElementById("astUpper").value;
-
-  if (astLower && astUpper && astLower > 0 && astUpper > 0) {
-
-    localStorage.setItem("astLower", astLower);
-    localStorage.setItem("astUpper", astUpper);
-
-    localStorage.setItem("step1Complete", "true");
-
-    window.location.href = "themed_step2.html";
-
-  } else {
-
-    alert("Please enter valid AST values.");
-
-  }
-}
+      const ast = document.getElementById("ast").value;
+      if (ast && ast > 0) {
+        localStorage.setItem("ast", ast);
+        localStorage.setItem("step1Complete", "true");
+        window.location.href = "themed_step2.html";
+      } else {
+        alert("Please enter a valid AST level.");
+      }
+    }
   </script>
 </body>
 </html>
